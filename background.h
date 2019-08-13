@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QThread>
+#include <QEventLoop>
+#include <QDebug>
 
 class BackGround : public QThread
 {
@@ -12,7 +14,7 @@ public:
 
     void run() Q_DECL_OVERRIDE;
 public slots:
-    void Trigger(void);
+    void Trigger(QByteArray *);
 private:
     bool triggered;
 signals:

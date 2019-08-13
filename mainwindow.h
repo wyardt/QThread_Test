@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QUdpSocket>
+#include <QDebug>
 #include "background.h"
 
 namespace Ui {
@@ -19,8 +21,13 @@ public:
 private:
     Ui::MainWindow *ui;
     BackGround *bg;
+    QUdpSocket *socket;
+    QByteArray *buf;
 public slots:
     void CatchGenerator();
+    void CatchUDP(void);
+signals:
+    void TriggerUDP(QByteArray *);
 };
 
 #endif // MAINWINDOW_H

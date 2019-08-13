@@ -10,14 +10,17 @@ void BackGround::run()
     while (1)
     {
         while (triggered == false)
+        {
             ;
+        }
         triggered = false;
         emit Generator();
     }
 }
 
-void BackGround::Trigger(void)
+void BackGround::Trigger(QByteArray *buf)
 {
     triggered = true;
+    qDebug() << buf->data() << endl;
 }
 
